@@ -1,0 +1,33 @@
+<body>
+  <header id="mainHeader">
+    <h1>Local Community Event Portal</h1>
+  </header>
+
+  <nav>
+    <select id="categoryFilter">
+      <option value="all">All Categories</option>
+      <option value="Environment">Environment</option>
+      <option value="Music">Music</option>
+      <option value="Art">Art</option>
+    </select>
+    <input id="searchInput" placeholder="Search events by name" />
+  </nav>
+
+  <section id="events"></section>
+
+  <form id="registrationForm">
+    <input name="name" placeholder="Your name" required />
+    <input name="email" type="email" placeholder="Your email" required />
+    <select name="eventSelect" required>
+      <option value="">Select event</option>
+      <option value="1">Community Cleanup</option>
+      <option value="3">Art Workshop</option>
+    </select>
+    <button id="registerBtn" type="submit">Register</button>
+  </form>
+
+  <div id="message"></div>
+  <div id="loadingSpinner" style="display:none;">Loading...</div>
+
+  <script src="main.js"></script>
+</body>
