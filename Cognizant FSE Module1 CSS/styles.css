@@ -1,0 +1,194 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #2c3e50;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+/* ID selector for the banner */
+#mainHeader {
+  background-color: rgba(44, 62, 80, 0.85);
+  padding: 1rem 0;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Class selector for event containers */
+.eventCard {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  margin: 1.5rem auto;
+  max-width: 600px;
+  padding: 1.25rem 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Grouping selector for h3 and p */
+h3, p {
+  font-family: 'Open Sans', sans-serif;
+  color: #34495e;
+  margin-bottom: 0.75rem;
+}
+
+
+h2 {
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+
+/* Different font styles for event titles and descriptions */
+.eventCard h3 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.eventCard p {
+  font-style: italic;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  text-align: justify;
+}
+
+
+nav a:link {
+  color: #2980b9;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #27ae60;
+}
+
+nav a:active {
+  color: #16a085;
+}
+
+nav a:visited {
+  color: #8e44ad;
+}
+
+/* Navigation list styling */
+nav ul {
+  list-style-type: none; /* Remove bullets */
+  display: flex;
+  gap: 1.5rem;
+  padding-left: 0;
+}
+
+nav li {
+  padding: 0.25rem 0;
+  margin: 0 0.3rem;
+}
+
+
+table {
+  width: 90%;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Table header */
+th {
+  background-color: #2980b9;
+  color: white;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+}
+
+/* Table cells */
+td {
+  border: 1px solid #ddd;
+  padding: 0.6rem 1rem;
+}
+
+/* Zebra striping */
+tbody tr:nth-child(even) {
+  background-color: rgba(41, 128, 185, 0.1);
+}
+
+
+
+/* Add border, padding, margin to event cards */
+.eventCard {
+  border: 1px solid #ccc;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem auto;
+  outline: none;
+}
+
+/* Outline on focus for form inputs */
+input:focus, select:focus, textarea:focus {
+  outline: 3px solid #3498db;
+}
+
+/* Hide element but keep space */
+.hidden-visibility {
+  visibility: hidden;
+}
+
+/* Hide element and remove space */
+.hidden-display {
+  display: none;
+}
+
+
+/* Multi-column layout for community bulletin */
+.news-article {
+  column-count: 2;
+  column-gap: 30px;
+  column-rule: 1px solid gray;
+  max-width: 700px;
+  margin: 2rem auto;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+  /* Stack nav links vertically */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Smaller font sizes */
+  h2 {
+    font-size: 2rem;
+  }
+  
+  .eventCard h3 {
+    font-size: 1.4rem;
+  }
+  
+  .eventCard p {
+    font-size: 0.9rem;
+  }
+
+  /* Reduce image sizes if present */
+  img {
+    width: 80vw;
+    height: auto;
+  }
+}
+
+
