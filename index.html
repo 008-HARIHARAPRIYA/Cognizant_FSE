@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Community Event Portal</title>
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0077b6;
+      color: white;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    nav a:hover, nav a:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    /* Welcome Banner */
+    #welcomeBanner {
+      background-color: #0096c7;
+      color: white;
+      padding: 1.5rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 1.25rem;
+    }
+    #welcomeBanner span {
+      color: #ff4d6d;
+      font-weight: bold;
+    }
+    .highlight {
+      background-color: #fde2e4;
+      color: #d90429;
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+
+    /* Image Gallery */
+    #events {
+      margin-bottom: 3rem;
+    }
+    #events h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.25rem;
+    }
+    .gallery-item {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-item:hover,
+    .gallery-item:focus {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+      outline: none;
+    }
+    .gallery-item img {
+      width: 100%;
+      display: block;
+      border-bottom: 4px solid #0077b6;
+      height: 160px;
+      object-fit: cover;
+    }
+    .caption {
+      padding: 0.8rem;
+      font-weight: 600;
+      text-align: center;
+      background-color: #f1f1f1;
+      color: #0077b6;
+    }
+
+    /* Registration Form */
+    #contact {
+      background: white;
+      padding: 2rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    #contact h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #0077b6;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    label {
+      font-weight: 600;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select,
+    textarea {
+      padding: 0.6rem;
+      font-size: 1rem;
+      border: 1.5px solid #ccc;
+      border-radius: 5px;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="date"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #0077b6;
+      outline: none;
+    }
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    button[type="submit"] {
+      background-color: #0077b6;
+      color: white;
+      padding: 0.8rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+    }
+    button[type="submit"]:hover,
+    button[type="submit"]:focus {
+      background-color: #005f8a;
+      outline: none;
+    }
+    output#formOutput {
+      margin-top: 1rem;
+      font-weight: 600;
+      color: #009688;
+      text-align: center;
+      min-height: 1.4rem;
+    }
+
+    /* Footer */
+    footer {
+      margin: 3rem 0 1rem;
+      text-align: center;
+      color: #777;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      nav a {
+        margin: 0 0.5rem;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav aria-label="Primary navigation">
+      <a href="#home" tabindex="0">Home</a>
+      <a href="#events" tabindex="0">Events</a>
+      <a href="#contact" tabindex="0">Contact</a>
+      <a href="help.html" target="_blank" rel="noopener noreferrer" tabindex="0">Help</a>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main>
+
+    <!-- Welcome Banner -->
+    <section id="home" aria-label="Welcome banner">
+      <div id="welcomeBanner">
+        Welcome to the Local Community Event Portal! <span style="color: red; font-weight: bold;">Special Offer:</span> 
+        <span class="highlight">Register now and get a free T-shirt!</span>
+      </div>
+    </section>
+
+    <!-- Image Gallery -->
+    <section id="events" aria-label="Community event image gallery">
+      <h2>Community Events Gallery</h2>
+      <div class="gallery">
+        <article class="gallery-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" 
+               alt="Volunteers cleaning up a local park during Community Cleanup" 
+               title="Community Cleanup" />
+          <div class="caption">Community Cleanup</div>
+        </article>
+        <article class="gallery-item" tabindex="0">
+          <img src="https://up.yimg.com/ib/th?id=OIP._4R2IllhzuT7SC8Og4nRggHaE5&pid=Api&rs=1&c=1&qlt=95&w=189&h=124" 
+               alt="Summer Festival attendees enjoying live music outdoors" 
+               title="Summer Festival" />
+          <div class="caption">Summer Festival</div>
+        </article>
+        <article class="gallery-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=400&q=80" 
+               alt="Runners at the start of the Annual Charity Run" 
+               title="Annual Charity Run" />
+          <div class="caption">Annual Charity Run</div>
+        </article>
+        <article class="gallery-item" tabindex="0">
+          <img src="https://tse1.mm.bing.net/th?id=OIP.ajbOq0-6B7Dl4aafiwOGDAHaHa&pid=Api&P=0&h=180" 
+               alt="Volunteers packing food boxes at the Winter Food Drive event" 
+               title="Winter Food Drive" />
+          <div class="caption">Winter Food Drive</div>
+        </article>
+        <article class="gallery-item" tabindex="0">
+          <img src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=400&q=80" 
+               alt="Participants creating art at a Local Art Workshop" 
+               title="Local Art Workshop" />
+          <div class="caption">Local Art Workshop</div>
+        </article>
+        <article class="gallery-item" tabindex="0">
+          <img src="https://tse1.mm.bing.net/th?id=OIP.2SN95xm9qdAwjv0tmGwo7wHaHa&pid=Api&P=0&h=180" 
+               alt="Crowd enjoying a Summer Music Concert at dusk" 
+               title="Summer Music Concert" />
+          <div class="caption">Summer Music Concert</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="contact" aria-label="Event registration form">
+      <h2>Register for an Event</h2>
+      <form id="registrationForm" onsubmit="return validateAndSubmit(event)" novalidate>
+        <label for="fullName">Full Name *</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Your full name" required aria-required="true" />
+
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="example@mail.com" required aria-required="true" />
+
+        <label for="phone">Phone Number *</label>
+        <input type="text" id="phone" name="phone" placeholder="10-digit number" required aria-required="true" pattern="^\d{10}$" />
+
+        <label for="eventSelect">Select Event *</label>
+        <select id="eventSelect" name="eventSelect" required aria-required="true">
+          <option value="" disabled selected>Choose an event</option>
+          <option value="Community Cleanup">Community Cleanup</option>
+          <option value="Summer Festival">Summer Festival</option>
+          <option value="Annual Charity Run">Annual Charity Run</option>
+          <option value="Winter Food Drive">Winter Food Drive</option>
+          <option value="Local Art Workshop">Local Art Workshop</option>
+          <option value="Summer Music Concert">Summer Music Concert</option>
+        </select>
+
+        <label for="comments">Additional Comments</label>
+        <textarea id="comments" name="comments" placeholder="Let us know if you have any special requirements or questions"></textarea>
+
+        <button type="submit" aria-label="Submit registration form">Register Now</button>
+      </form>
+      <output id="formOutput" aria-live="polite"></output>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 2025 Local Community Events. All rights reserved.
+  </footer>
+
+  <script>
+    function validateAndSubmit(event) {
+      event.preventDefault();
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const eventSelect = document.getElementById('eventSelect').value;
+
+      // Basic validation
+      if (!fullName) {
+        alert('Please enter your full name.');
+        return false;
+      }
+      if (!email || !validateEmail(email)) {
+        alert('Please enter a valid email address.');
+        return false;
+      }
+      if (!phone.match(/^\d{10}$/)) {
+        alert('Please enter a valid 10-digit phone number.');
+        return false;
+      }
+      if (!eventSelect) {
+        alert('Please select an event.');
+        return false;
+      }
+
+      // If validation passes
+      document.getElementById('formOutput').textContent = 
+        `Thank you, ${fullName}! You have successfully registered for the ${eventSelect}.`;
+
+      // Optionally clear the form
+      document.getElementById('registrationForm').reset();
+
+      return true;
+    }
+
+    function validateEmail(email) {
+      // Simple email regex
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+  </script>
+
+</body>
+</html>
